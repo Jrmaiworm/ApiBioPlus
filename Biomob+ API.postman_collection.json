@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "9d2f0d50-a768-40a1-aebb-aafbb9d90689",
+		"name": "Biomob+ API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Find Places",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/biomob-api/places/supermarket/-22.5112498/-43.1779306/2000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"biomob-api",
+						"places",
+						"supermarket",
+						"-22.5112498",
+						"-43.1779306",
+						"2000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Next Page",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"actualPageUrl\": \"https://maps.googleapis.com/maps/api/place/textsearch/json?query=supermarket&location=-22.5112498,-43.1779306&radius=2000&region=br&hasNextPage=true&nextPage()=true&sensor=false&key=AIzaSyB5bgwqEelomy8qhYXb95UAXOiRE6BZ3ZU\",\n    \"nextPageToken\": \"Aap_uEBYOQqSTwd4X-6VOTbr3kSDpOH96et59iC4ubYY-CaghzSRp57FtEtgtypkln7hmzErNYwNlR6p_RLn2-RP9z-hvq99kXR_E573auLOQz7cDBhGGQadU8yUhcrKD3PvrDew7eBSqJzGj4z8TAL7LZiz5zOI6V6ta3t3A0PA0-G0ioxJW_con1Wa9i0RS8gdGmNMMtbn86GAVO52lMbLgH8grC_-GZEaEHDQusGHWdAXcow0CUC-hudhUdjUC1L2mbA7UFmygEUZVipa8h61t3ypkHPdG-9Ykjg7FaQtoaSaB1NeyT32uWL4wO_F4_4Y7M93b8HOj_UyXyZdqL7y-kUZDkM2J6hNkOadePXS8z1c4GeTR01SIgRy8xB7WuWhcgLi1UvOZ1UYvjask5Fl4B0xBWl6mT-UPX0nP4Pv8-fs1Fp8aSf8r9H8YG5c3uV3A0zAoGB_ito\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/biomob-api/places/next-page",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"biomob-api",
+						"places",
+						"next-page"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,13 @@
+package br.com.biomob;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class BiomobApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
