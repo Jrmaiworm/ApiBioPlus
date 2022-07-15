@@ -2,21 +2,19 @@ package br.com.biomob.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.biomob.entity.Locais;
+import br.com.biomob.entity.Evaluation;
 import br.com.biomob.interfaces.IBiomobPlacesService;
 import br.com.biomob.interfaces.IGooglePlacesRestClientService;
-import br.com.biomob.model.BiomobFields;
 import br.com.biomob.model.BiomobPlacesReturn;
 import br.com.biomob.model.Categories;
 import br.com.biomob.model.Place;
 import br.com.biomob.model.google.GoogleResponse;
 import br.com.biomob.model.google.GoogleResult;
-import br.com.biomob.repository.BiomobRepository;
+import br.com.biomob.repository.EvaluationRepository;
 
 @Service
 public class BiomobPlacesService implements IBiomobPlacesService{
@@ -26,8 +24,11 @@ public class BiomobPlacesService implements IBiomobPlacesService{
 	@Autowired
 	IGooglePlacesRestClientService iGooglePlacesRestClientService;
 
+//	@Autowired
+//	private BiomobRepository biomobRepository;
+	
 	@Autowired
-	private BiomobRepository biomobRepository;
+	private EvaluationRepository evaluationRepository;
 	
 	@Override
 	public BiomobPlacesReturn findPlacesByGeoreference(String category, String latitude, String longitude, String range) {
@@ -86,8 +87,7 @@ public class BiomobPlacesService implements IBiomobPlacesService{
 			Place place = new Place();
 			place.setGoogleFields(result);
 			
-			//TODO buscar informação no db
-			place.setBiomobFields(findBiomobInformation(result.getPlace_id()));
+			place.setBiomobEvaluation(findBiomobEvaluation(result.getPlace_id()));
 			
 			biomobPlacesReturn.getPlaces().add(place);
 		}
@@ -98,23 +98,8 @@ public class BiomobPlacesService implements IBiomobPlacesService{
 		return biomobPlacesReturn;
 	}
 
-	private BiomobFields findBiomobInformation(String placeId) {
-		
-		Optional<Locais> optionalPlace = biomobRepository.findById(placeId);
-		if (optionalPlace.isEmpty()) {
-			return null;
-		}
-		
-		Locais place = optionalPlace.get();
-		
-		BiomobFields biomobFields = new BiomobFields();
-		biomobFields.getAccessibility().setHasChairWheel(place.valid(place.getHaschairwheel()));
-		biomobFields.getAccessibility().setHasHandicappedHelp(place.valid(place.getHashandicappedhelp()));
-		biomobFields.getAccessibility().setHasInterpreter(place.valid(place.getHasinterpreter()));
-		biomobFields.getAccessibility().setHasSpecialFurniture(place.valid(place.getHasspecialfurniture()));
-		
-		return biomobFields;
+	private List<Evaluation> findBiomobEvaluation(String place_id) {
+		return evaluationRepository.findByPlaceId(place_id);
 	}
-
 
 }
