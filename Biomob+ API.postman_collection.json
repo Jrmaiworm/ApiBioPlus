@@ -6,6 +6,203 @@
 	},
 	"item": [
 		{
+			"name": "Avaliação",
+			"item": [
+				{
+					"name": "Fazer avaliação",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"placeId\": \"ChIJMSqhMld_mQAR4QxmcfkBaTE\",\n    \"placeName\": \"Museu do Amanhã\",\n    \"userId\": \"rodrigo.silva@gmail.com\",\n    \"userName\": \"Rodrigo Silva\",\n    \"internalCirculation\": \"YES\",\n    \"parking\": \"NOT_APPLICABLE\",\n    \"sidewalk\": \"YES\",\n    \"audioVisual\": \"NO\",\n    \"mainEntrance\": \"YES\",\n    \"accessibleBathroom\": \"YES\",\n    \"wheelchairAccess\": true,\n    \"brailleMenu\": true,\n    \"serviceInLibras\": true,\n    \"audioMenu\": false,\n    \"star\": \"4,5\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/biomob-api/evaluation",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"biomob-api",
+								"evaluation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar avaliação",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"placeId\": \"ChIJMSqhMld_mQAR4QxmcfkBaTE\",\n    \"placeName\": \"Restaurante Tradição Mineira\",\n    \"userId\": \"rodrigo.silva@gmail.com\",\n    \"userName\": \"fulano de tal\",\n    \"internalCirculation\": \"NOT_APPLICABLE\",\n    \"parking\": \"NOT_APPLICABLE\",\n    \"sidewalk\": \"NOT_APPLICABLE\",\n    \"audioVisual\": \"NOT_APPLICABLE\",\n    \"mainEntrance\": \"NOT_APPLICABLE\",\n    \"accessibleBathroom\": \"NOT_APPLICABLE\",\n    \"wheelchairAccess\": false,\n    \"brailleMenu\": true,\n    \"serviceInLibras\": false,\n    \"audioMenu\": false,\n    \"star\": \"4,5\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/biomob-api/evaluation/0da0ab9c-faf6-4c96-94b7-294ad5991ef2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"biomob-api",
+								"evaluation",
+								"0da0ab9c-faf6-4c96-94b7-294ad5991ef2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover avaliação",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/biomob-api/evaluation/f4fc000c-d09d-4a32-b0f2-db62deca25e9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"biomob-api",
+								"evaluation",
+								"f4fc000c-d09d-4a32-b0f2-db62deca25e9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por place id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/biomob-api/evaluation/place/ChIJMSqhMld_mQAR4QxmcfkBaTE",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"biomob-api",
+								"evaluation",
+								"place",
+								"ChIJMSqhMld_mQAR4QxmcfkBaTE"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por user id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/biomob-api/evaluation/user/rodrigo.silva@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"biomob-api",
+								"evaluation",
+								"user",
+								"rodrigo.silva@gmail.com"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Cadastro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"app@biomob.com\",\n    \"name\": \"Biomob Plus\",\n    \"password\": \"biomob2022\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/biomob-api/user/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"biomob-api",
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"app@biomob.com\",\n    \"name\": \"Biomob Plus\",\n    \"password\": \"biomob2022\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/biomob-api/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"biomob-api",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Find Places",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -23,7 +220,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/biomob-api/places/supermarket/-22.5112498/-43.1779306/2000",
+					"raw": "http://localhost:8080/biomob-api/places/museudoamanha/-22.5112498/-43.1779306/20",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -32,10 +229,10 @@
 					"path": [
 						"biomob-api",
 						"places",
-						"supermarket",
+						"museudoamanha",
 						"-22.5112498",
 						"-43.1779306",
-						"2000"
+						"20"
 					]
 				}
 			},
@@ -48,7 +245,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"actualPageUrl\": \"https://maps.googleapis.com/maps/api/place/textsearch/json?query=supermarket&location=-22.5112498,-43.1779306&radius=2000&region=br&hasNextPage=true&nextPage()=true&sensor=false&key=AIzaSyB5bgwqEelomy8qhYXb95UAXOiRE6BZ3ZU\",\n    \"nextPageToken\": \"Aap_uEBYOQqSTwd4X-6VOTbr3kSDpOH96et59iC4ubYY-CaghzSRp57FtEtgtypkln7hmzErNYwNlR6p_RLn2-RP9z-hvq99kXR_E573auLOQz7cDBhGGQadU8yUhcrKD3PvrDew7eBSqJzGj4z8TAL7LZiz5zOI6V6ta3t3A0PA0-G0ioxJW_con1Wa9i0RS8gdGmNMMtbn86GAVO52lMbLgH8grC_-GZEaEHDQusGHWdAXcow0CUC-hudhUdjUC1L2mbA7UFmygEUZVipa8h61t3ypkHPdG-9Ykjg7FaQtoaSaB1NeyT32uWL4wO_F4_4Y7M93b8HOj_UyXyZdqL7y-kUZDkM2J6hNkOadePXS8z1c4GeTR01SIgRy8xB7WuWhcgLi1UvOZ1UYvjask5Fl4B0xBWl6mT-UPX0nP4Pv8-fs1Fp8aSf8r9H8YG5c3uV3A0zAoGB_ito\"\n}",
+					"raw": "{\n        \"actualPageUrl\": \"https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurante&location=-22.5112498,-43.1779306&radius=20&region=br&hasNextPage=true&nextPage()=true&sensor=true&key=AIzaSyB5bgwqEelomy8qhYXb95UAXOiRE6BZ3ZU&pagetoken=Aap_uED2K-s7IUcYXgpw5APOKKNK4qmPaps9NQpT6gjCiA7n34y8vtMh_SeYSneLsDOFg-UkzxYlyatjHyLFQax8te5zwP3D2DE6N81_oQKi6slc1BxK7Ja2sgP0oqMoFHAroZ2Dgcc0SmplbH7PnuxTIA7Xad1VkyNAxKK8KoNzLP1nXIDgFiSf_Req1upaaryIb-HXyMqChPw_NZoDy3Kq8V9zxrLPCgXFmDI-p9t4dQjuveNAroXxEwwb6En2LrE_Z3mQYarY2ifDwIxurcIep2Xdt2_RiW6383XzS2vx04zHrmthhhAOPxCqbYUV6gticJuUASq3QT5S9K402CEyU-GIxiNlvrDMKPloBhARiTw8HSv4OTXOCEdCxyHp4AQ12xZTsFlCnyVp3U7sEaApLXaAUIcJUdf3HNWw0LEktTOXhJEEnVR_78fKoUTpg19LPofqpBSrHtk\",\n        \"nextPageToken\": \"Aap_uECKbwsJAwlJU9Ol3s_CG6EM-TYYXzzfZBqyNNNmi4izbw84hyPvexTVhTO9IXvdfZjrNxNeigyA4Yq4tkDWJDvk92_-S8ZvqB4C7YDJkpNQtiBK-exNv-iKIHjRLaTk8osvZu7cZS6ESgwR3xn6yjFKWYpLurIxfR5Chz9DyXXh5iSPltwaIh89ZHyO4y-DSgxwyQCIv6vjEjrrjzzbZPcX-7y067od274yfC1IxeuAQXMnQns3Ysps0aENIVu2UNf7Ykb63APnsRiKNYrXtx_htvEFwKfVSfYkS3hvAORAYQHhJ09JRRHZ5ugI8utlyNO1K0Ye8Ut7CWQZ5Ro0mSYQzJqOz72ZyEtNbHu--T_ysIiWCJfLb_P3drJgRZUfj1eomri446VDfkJ5USTekDxP1bg1dEN-WxPtNpbHZawI_0g5EA6Sz5WDP35UzBUe6z21KEtmtsO__dH25hb7gLemiD7QITzh5DuVSdYZuCOqFVXrAgKGHTeOmBmWP-1qG_JjSsxwkcSZ_G_p3ti-ZthCqTvJMwUaiv1qaqHR1V_TnPHBGFrTp1oeRkECBhR8DP9G1sELggjdl_kO8BPzEywTupAIISCLXi1rwjxbgcZ1yyOh-HatsAdYs7YQhrKpP7uEyzVlWJddo8V0YNZeq1-vg4baMO7N\"\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
